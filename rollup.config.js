@@ -23,12 +23,26 @@ let configs = [
         // 入口文件
         input: 'src/index.ts',
         // 输出配置对象
-        output: {
-            name:'xj-web3d',
-            // 输出目录
-            file: 'dist/xj-web3d.js',
-            format: 'umd'
-        },
+        output: [
+            {
+                name:'xj-web3d',
+                // 输出目录
+                file: 'dist/xj-web3d.js',
+                format: 'esm'
+            },
+            {
+                name:'xj-web3d',
+                // 输出目录
+                file: 'dist/xj-web3d.cjs',
+                format: 'cjs'
+            },
+            {
+                name:'xj-web3d',
+                // 输出目录
+                file: 'dist/xj-web3d.umd.js',
+                format: 'umd'
+            }
+        ],
         plugins: [
             resolve(),
             commonjs({
@@ -39,7 +53,6 @@ let configs = [
             typescript2(),
             typescript(),
             banner(bannerText),
-            
         ]
     },
     { // min
@@ -50,7 +63,7 @@ let configs = [
             name:'xj-web3d',
             // 输出目录
             file: 'dist/xj-web3d.min.js',
-            format: 'umd'
+            format: 'esm'
         },
         plugins: [
             resolve(),
@@ -65,50 +78,6 @@ let configs = [
             uglify()
         ]
     },
-    { // es
-        // 入口文件
-        input: 'src/index.ts',
-        // 输出配置对象
-        output: {
-            name:'xj-web3d',
-            // 输出目录
-            file: 'dist/xj-web3d.es.js',
-            format: 'es'
-        },
-        plugins: [
-            resolve(),
-            commonjs({
-                include: /node_modules/
-            }),
-            babel(),
-            json(),
-            typescript2(),
-            typescript(),
-            banner(bannerText),
-        ]
-    },
-    { // cjs
-        // 入口文件
-        input: 'src/index.ts',
-        // 输出配置对象
-        output: {
-            name:'xj-web3d',
-            // 输出目录
-            file: 'dist/xj-web3d.cjs.js',
-            format: 'cjs'
-        },
-        plugins: [
-            resolve(),
-            commonjs({
-                include: /node_modules/
-            }),
-            babel(),
-            json(),
-            typescript2(),
-            typescript(),
-            banner(bannerText),
-        ]
-    }
 ];
 
 export default configs;
