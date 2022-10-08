@@ -1,6 +1,6 @@
 {
   "name": "xj-web3d",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Web3D library. Can help you quick development project.",
   "main": "dist/xj-web3d.umd.js",
   "module": "dist/xj-web3d.umd.js",
