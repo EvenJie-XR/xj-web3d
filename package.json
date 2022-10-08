@@ -2,8 +2,8 @@
   "name": "xj-web3d",
   "version": "1.0.4",
   "description": "A Web3D library. Can help you quick development project.",
-  "main": "dist/xj-web3d.umd.js",
-  "module": "dist/xj-web3d.umd.js",
+  "main": "dist/xj-web3d.js",
+  "module": "dist/xj-web3d.js",
   "type": "module",
   "scripts": {
     "build:lib": "cross-env rollup -c"
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "cesium": "^1.98.1",
+    "rollup-plugin-typescript": "^1.0.1",
     "three": "^0.145.0"
   }
 }

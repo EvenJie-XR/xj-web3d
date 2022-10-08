@@ -1,12 +1,12 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import typescript2 from 'rollup-plugin-typescript2';
 import babel from 'rollup-plugin-babel'; // 处理es6
 import {uglify} from 'rollup-plugin-uglify';
 import banner from 'rollup-plugin-banner';
 import json from 'rollup-plugin-json';
 import pkg from './package.json';
-import merge from 'webpack-merge';
+import typescript from 'rollup-plugin-typescript';
 
 // 获取今年年份和package.json里的version
 let year = new Date().getFullYear(),
@@ -18,38 +18,97 @@ let bannerText = `xj-web3d v${version}
 Licensed under MIT
 Released on: oct 21, 2022`;
 
-let config = {
-    // 入口文件
-    input: 'src/index.ts',
-    // 输出配置对象
-    output: {
-        name:'xj-web3d',
-        // 输出目录
-        file: 'dist/xj-web3d.umd.js',
-        format: 'umd'
+let configs = [
+    { // umd
+        // 入口文件
+        input: 'src/index.ts',
+        // 输出配置对象
+        output: {
+            name:'xj-web3d',
+            // 输出目录
+            file: 'dist/xj-web3d.js',
+            format: 'umd'
+        },
+        plugins: [
+            resolve(),
+            commonjs({
+                include: /node_modules/
+            }),
+            babel(),
+            json(),
+            typescript2(),
+            typescript(),
+            banner(bannerText),
+            
+        ]
     },
-    plugins: [
-        resolve(),
-        commonjs({
-            include: /node_modules/
-        }),
-        babel(),
-        json(),
-        typescript(),
-        banner(bannerText),
-    ]
-};
+    { // min
+        // 入口文件
+        input: 'src/index.ts',
+        // 输出配置对象
+        output: {
+            name:'xj-web3d',
+            // 输出目录
+            file: 'dist/xj-web3d.min.js',
+            format: 'umd'
+        },
+        plugins: [
+            resolve(),
+            commonjs({
+                include: /node_modules/
+            }),
+            babel(),
+            json(),
+            typescript2(),
+            typescript(),
+            banner(bannerText),
+            uglify()
+        ]
+    },
+    { // es
+        // 入口文件
+        input: 'src/index.ts',
+        // 输出配置对象
+        output: {
+            name:'xj-web3d',
+            // 输出目录
+            file: 'dist/xj-web3d.es.js',
+            format: 'es'
+        },
+        plugins: [
+            resolve(),
+            commonjs({
+                include: /node_modules/
+            }),
+            babel(),
+            json(),
+            typescript2(),
+            typescript(),
+            banner(bannerText),
+        ]
+    },
+    { // cjs
+        // 入口文件
+        input: 'src/index.ts',
+        // 输出配置对象
+        output: {
+            name:'xj-web3d',
+            // 输出目录
+            file: 'dist/xj-web3d.cjs.js',
+            format: 'cjs'
+        },
+        plugins: [
+            resolve(),
+            commonjs({
+                include: /node_modules/
+            }),
+            babel(),
+            json(),
+            typescript2(),
+            typescript(),
+            banner(bannerText),
+        ]
+    }
+];
 
-let [min, es, cjs] = [merge({}, config), merge({}, config), merge({}, config)];
-
-min.output.file = 'dist/xj-web3d.umd.min.js';
-min.output.format = 'umd';
-min.plugins.unshift(uglify());
-
-es.output.file = 'dist/xj-web3d.es.js';
-es.output.format = 'es';
-
-cjs.output.file = 'dist/xj-web3d.cjs.js';
-cjs.output.format = 'cjs';
-
-export default [config, min, es, cjs];
+export default configs;
