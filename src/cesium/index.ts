@@ -1,6 +1,7 @@
-import { buildModuleUrl, TileMapServiceImageryProvider, Viewer } from "cesium";
+import { buildModuleUrl, TileMapServiceImageryProvider, Viewer, Ion } from "cesium";
+(window as any).CESIUM_BASE_URL = '/web3d-example/cesium/';
 
-
+Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiOTNkMWU3NS0wM2JiLTQ4NmMtYTgyNi05NWU3MWVjMWEzMmYiLCJpZCI6NzE0MzQsImlhdCI6MTYzNTIxNjIyMX0.QnoSt0kZkqKMAL_9EHw6toCwONY-Ao2mRwYpS36FLAk'
 export class jCesium{
     public viewer: Viewer | undefined
     constructor(container: HTMLElement){
@@ -20,7 +21,6 @@ export class jCesium{
             })
         });
         (this.viewer.cesiumWidget.creditContainer as HTMLDivElement).style.display = 'none'; // 去掉cesium的左下角logo区域
-        
     }
     /**
      * 释放当前场景的资源避免内存泄漏

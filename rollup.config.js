@@ -28,7 +28,7 @@ let configs = [
                 name:'xj-web3d',
                 // 输出目录
                 file: 'dist/xj-web3d.js',
-                format: 'esm'
+                format: 'es'
             },
             {
                 name:'xj-web3d',
@@ -63,7 +63,7 @@ let configs = [
             name:'xj-web3d',
             // 输出目录
             file: 'dist/xj-web3d.min.js',
-            format: 'esm'
+            format: 'es'
         },
         plugins: [
             resolve(),
