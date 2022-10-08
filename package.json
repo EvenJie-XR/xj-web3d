@@ -2,8 +2,8 @@
   "name": "xj-web3d",
   "version": "1.0.3",
   "description": "A Web3D library. Can help you quick development project.",
-  "main": "dist/xj-web3d.umd.min.js",
-  "module": "dist/xj-web3d.umd.min.js",
+  "main": "dist/xj-web3d.umd.js",
+  "module": "dist/xj-web3d.umd.js",
   "type": "module",
   "scripts": {
     "build:lib": "cross-env rollup -c"
