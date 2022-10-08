@@ -4,6 +4,16 @@ Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiOTNkM
 export class jCesium{
     public viewer: Viewer | undefined
     constructor(container: HTMLElement){
+        this.testPreset();
+        this.init(container);
+    }
+    /**
+     * 初始化cesium
+     * @author: zwj
+     * @param {HTMLElement} container
+     * @return {*}
+     */    
+    public init(container: HTMLElement) {
         this.viewer = new Viewer(container, {
             infoBox: false, // 解决iframe无法执行js报错问题
             baseLayerPicker: true, // 去掉底图选择器
@@ -20,6 +30,16 @@ export class jCesium{
             })
         });
         (this.viewer.cesiumWidget.creditContainer as HTMLDivElement).style.display = 'none'; // 去掉cesium的左下角logo区域
+    }
+    /**
+     * 检测预备环境是否满足要求
+     * @author: zwj
+     * @return {*}
+     */    
+    public testPreset() {
+        if(!(window as any).CESIUM_BASE_URL){ // 检查是否设置CESIUM_BASE_URL
+            throw new Error('CESIUM_BASE_URL未设置，请设置cesium静态资源包的位置，例如：cesium静态资源包在public/cesium目录下，此项目有baseUrl：xj，浏览器url：http://localhost:5173/xj/examples/xxx/xxx/xxx.html，那么我们设置CESIUM_BASE_URL为：/xj/cesium/。')
+        }
     }
     /**
      * 释放当前场景的资源避免内存泄漏
