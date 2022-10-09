@@ -17,6 +17,10 @@
   "author": "jie",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/GunOmniscience/xj-web3d"
+  },
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.3",
