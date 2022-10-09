@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { ArcballControls } from 'three/examples/jsm/controls/ArcballControls.js';
 import { ResourceTracker } from "./ResourceTracker"
 
-export class jThree{
+export class xjThree {
     public scene: Scene
     public camera: PerspectiveCamera
     public renderer: WebGLRenderer

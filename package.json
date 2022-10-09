@@ -1,12 +1,13 @@
 {
   "name": "xj-web3d",
   "version": "1.0.9",
-  "description": "A Web3D library. Can help you quick development project.",
-  "main": "dist/xj-web3d.js",
-  "module": "dist/xj-web3d.js",
+  "description": "A Web3D help library. Can help you quick development project.",
+  "main": "dist/xj-web3d.min.js",
+  "module": "dist/xj-web3d.min.js",
   "type": "module",
   "scripts": {
-    "build:lib": "cross-env rollup -c"
+    "build:lib": "cross-env rollup -c",
+    "build:dts": "tsc -b ./tsconfig.json"
   },
   "keywords": [
     "three.js",
@@ -27,14 +28,15 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
     "rollup-plugin-typescript2": "^0.34.1",
     "rollup-plugin-uglify": "^6.0.4",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
-    "webpack-merge": "^5.8.0",
-    "rollup-plugin-typescript": "^1.0.1"
+    "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@types/three": "^0.144.0",
     "cesium": "^1.98.1",
     "three": "^0.145.0"
   }

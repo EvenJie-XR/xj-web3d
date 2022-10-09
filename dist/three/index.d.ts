@@ -3,7 +3,7 @@ import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { ArcballControls } from 'three/examples/jsm/controls/ArcballControls.js';
 import { ResourceTracker } from "./ResourceTracker";
-export declare class jThree {
+export declare class xjThree {
     container: HTMLElement;
     scene: Scene;
     camera: PerspectiveCamera;

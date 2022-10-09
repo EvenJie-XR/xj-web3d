@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
         "declaration": true, // 生成*.d.ts
+        "emitDeclarationOnly": false, /* 只生成声明文件，不生成 js 文件*/ 
         "module": "ES2020",
         "target": "ES2020",
-        "allowJs": true
     },
     "include": [
         "./src/*"
     ],
     "exclude": [
         "./node_modules/"
-    ]
+    ],
 }

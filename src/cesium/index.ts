@@ -1,10 +1,8 @@
-import { buildModuleUrl, TileMapServiceImageryProvider, Viewer, Ion } from "cesium";
+import { buildModuleUrl, TileMapServiceImageryProvider, Viewer } from "cesium";
 
-Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiOTNkMWU3NS0wM2JiLTQ4NmMtYTgyNi05NWU3MWVjMWEzMmYiLCJpZCI6NzE0MzQsImlhdCI6MTYzNTIxNjIyMX0.QnoSt0kZkqKMAL_9EHw6toCwONY-Ao2mRwYpS36FLAk'
-export class jCesium{
+export class xjCesium{
     public viewer: Viewer | undefined
     constructor(container: HTMLElement){
-        this.testPreset();
         this.init(container);
     }
     /**
@@ -30,16 +28,6 @@ export class jCesium{
             })
         });
         (this.viewer.cesiumWidget.creditContainer as HTMLDivElement).style.display = 'none'; // 去掉cesium的左下角logo区域
-    }
-    /**
-     * 检测预备环境是否满足要求
-     * @author: zwj
-     * @return {*}
-     */    
-    public testPreset() {
-        if(!(window as any).CESIUM_BASE_URL){ // 检查是否设置CESIUM_BASE_URL
-            throw new Error('CESIUM_BASE_URL未设置，请设置cesium静态资源包的位置，例如：cesium静态资源包在public/cesium目录下，此项目有baseUrl：xj，浏览器url：http://localhost:5173/xj/examples/xxx/xxx/xxx.html，那么我们设置CESIUM_BASE_URL为：/xj/cesium/。')
-        }
     }
     /**
      * 释放当前场景的资源避免内存泄漏
