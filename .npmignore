@@ -1,5 +1,6 @@
 node_modules/
 src/
+image/
 .npmignore
 .babelrc
 .gitignore
