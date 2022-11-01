@@ -9,8 +9,8 @@ export declare class ResourceTracker {
     /**
      * 绑定资源（所有会add to scene的对象都需要绑定一下）
      * @author: zwj
-     * @param {any} resource 资源（所有会add to scene的内容，不管是vector还是别的都要）
-     * @return {*}
+     * @param {T} resource 资源（所有会add to scene的内容，不管是vector还是别的都要）
+     * @return {T}
      */
     track(resource: any): any;
     /**
