@@ -15,7 +15,7 @@ export class ResourceTracker {
      * @param {T} resource 资源（所有会add to scene的内容，不管是vector还是别的都要）
      * @return {T}
      */    
-    track(resource) {
+    track<T>(resource: T): T {
         if (!resource) {
             return resource;
         }
@@ -27,7 +27,7 @@ export class ResourceTracker {
             return resource;
         }
 
-        if (resource.dispose || resource instanceof THREE.Object3D) {
+        if ((resource as any).dispose || resource instanceof THREE.Object3D) {
             this.resources.add(resource);
         }
         if (resource instanceof THREE.Object3D) {
