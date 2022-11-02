@@ -14,7 +14,7 @@ export class xjThree {
     constructor(public container: HTMLElement){
         this.resourceManager = new ResourceTracker();
         this.scene = new Scene()
-        this.camera = new PerspectiveCamera( 75, container.clientWidth / container.clientHeight, 1, 1000 );
+        this.camera = new PerspectiveCamera( 75, container.clientWidth / container.clientHeight, 0, 1000 );
         this.camera.position.set(0, 0, -10);
         this.renderer = new WebGLRenderer( { antialias: true } );
         this.container.appendChild(this.renderer.domElement);
